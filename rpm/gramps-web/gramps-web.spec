@@ -8,7 +8,8 @@ License:	GPLv2
 URL:		https://github.com/ahs3/gramps-web-pkg
 Source0:	https://github.com/ahs3/gramps-web-pkg/%{name}-%{version}.tar.gz
 
-BuildRequires:	python3-devel
+%generate_buildrequires
+%pyproject_buildrequires
 
 # services required to run gramps-web
 Requires:	nginx, mstmp
