@@ -10,6 +10,7 @@ Packages being (or to be) created:
 - gramps-web-api: https://pypi.org/project/gramps-webapi/ (WIP)
   - back-end API for accessing gramps data bases
   - dependencies:
+    - python-sifts: https://pypi.org/project/sifts/ (COPR)
     - python-webargs: https://pypi.org/project/webargs/ (COPR)
 
 Key:
@@ -19,6 +20,6 @@ Key:
 - WIP: Work In Progress
 
 Build Order:
-1. python-webargs
+1. python-sifts, python-webargs
 1. python-gramps-webapi
 
