@@ -1,5 +1,6 @@
 .*.swp
 gramps-web-api*
+flask-limiter*
 limits*
 python-ffmpeg-python/
 sifts*
