@@ -4,15 +4,20 @@ Experimental packaging for the gramps-web project, instead of using containers
 Packages being (or to be) created:
 - gramps-web: meta package (WIP)
   - web site for gramps data bases: https://www.grampsweb.org/
-  - dependencies:
+  - unmet dependencies:
     - gramps-webapi (WIP)
     - gramps-web-frontend (WIP)
 - gramps-web-api: https://pypi.org/project/gramps-webapi/ (WIP)
   - back-end API for accessing gramps data bases
-  - dependencies:
+  - unmet dependencies:
+    - python-flask-limiter: https://pypi.org/project/flask-limiter/ (COPR)
     - python-ffmpeg-python: https://pypi.org/project/ffmpeg-python/ (COPR)
     - python-sifts: https://pypi.org/project/sifts/ (COPR)
     - python-webargs: https://pypi.org/project/webargs/ (COPR)
+- python-flask-limiter: https://pypi.org/project/flask-limiter/ (COPR)
+  - rate limiting for Flask applications
+  - unmet dependencies:
+    - python-limits: https://pypi.org/project/limits/ (COPR)
 
 Key:
 - COPR: package builds in Fedora COPR
@@ -21,7 +26,8 @@ Key:
 - WIP: Work In Progress
 
 Build Order:
-1. python-ffpmeg-python, python-sifts, python-webargs
+1. python-limits
+1. python-flask-limiter, python-ffpmeg-python, python-sifts, python-webargs
 1. python-gramps-webapi
 
 Notes:
