@@ -3,3 +3,4 @@ tmp/*
 webargs*
 sifts*
 gramps-web-api*
+python-ffmpeg-python/

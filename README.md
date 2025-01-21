@@ -10,6 +10,7 @@ Packages being (or to be) created:
 - gramps-web-api: https://pypi.org/project/gramps-webapi/ (WIP)
   - back-end API for accessing gramps data bases
   - dependencies:
+    - python-ffmpeg-python: https://pypi.org/project/ffmpeg-python/ (COPR)
     - python-sifts: https://pypi.org/project/sifts/ (COPR)
     - python-webargs: https://pypi.org/project/webargs/ (COPR)
 
@@ -20,6 +21,13 @@ Key:
 - WIP: Work In Progress
 
 Build Order:
-1. python-sifts, python-webargs
+1. python-ffpmeg-python, python-sifts, python-webargs
 1. python-gramps-webapi
+
+Notes:
+- python-ffmpeg-python:
+  - does not appear to have support in Fedora 42
+  - will gramps-web-api replace it?
+  - Fedora 42 version builds without issue and is in the COPR, unchanged
+    from the Fedora 41 version
 
