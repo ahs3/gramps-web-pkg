@@ -9,10 +9,11 @@ Packages being (or to be) created:
 - gramps-web-api: https://pypi.org/project/gramps-webapi/ (WIP)
   - back-end API for accessing gramps data bases
   - unmet dependencies:
-    - python-flask-jwt-extended: https://pypi.org/project/Flask-JWT-Extended/
+    - python-flask_jwt_extended: https://pypi.org/project/Flask-JWT-Extended/
       (COPR)
     - python-flask-limiter: https://pypi.org/project/flask-limiter/ (COPR)
     - python-ffmpeg-python: https://pypi.org/project/ffmpeg-python/ (COPR)
+    - python-gramps-ql: https://pypi.org/project/gramps-ql/ (COPR)
     - python-sifts: https://pypi.org/project/sifts/ (COPR)
     - python-webargs: https://pypi.org/project/webargs/ (COPR)
 - python-flask-limiter: https://pypi.org/project/flask-limiter/ (COPR)
@@ -27,9 +28,10 @@ Key:
 - WIP: Work In Progress
 
 Build Order:
-1. python-limits
-1. python-flask_jwt_extended, python-flask-limiter, python-ffpmeg-python
-1. python-sifts, python-webargs
+1. python-limits -> python-flask-limiter
+1. These may be done in any order as part of this step: 
+   python-flask_jwt_extended, python-ffpmeg-python, python-sifts,
+   python-webargs, python-gramps-ql
 1. python-gramps-webapi
 
 Notes:
