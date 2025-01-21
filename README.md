@@ -4,9 +4,9 @@ Packages being (or to be) created:
 - gramps-web: meta package (WIP)
   - web site for gramps data bases: https://www.grampsweb.org/
   - unmet dependencies:
-    - gramps-webapi (WIP)
+    - python-gramps-webapi: https://pypi.org/project/gramps-webapi/ (COPR)
     - gramps-web-frontend (WIP)
-- gramps-web-api: https://pypi.org/project/gramps-webapi/ (WIP)
+- gramps-web-api: https://pypi.org/project/gramps-webapi/ (COPR)
   - back-end API for accessing gramps data bases
   - unmet dependencies:
     - python-flask_jwt_extended: https://pypi.org/project/Flask-JWT-Extended/
@@ -25,6 +25,7 @@ Packages being (or to be) created:
 Key:
 - COPR: package builds in Fedora COPR
   - https://copr.fedorainfracloud.org/coprs/ahs3/gramps-web/
+  - implies at least an initial version of a proper package
 - TBD: To Be Determined
 - WIP: Work In Progress
 
