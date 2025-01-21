@@ -1,4 +1,3 @@
-# gramps-web-pkg
 Experimental packaging for the gramps-web project, instead of using containers
 
 Packages being (or to be) created:
@@ -10,6 +9,8 @@ Packages being (or to be) created:
 - gramps-web-api: https://pypi.org/project/gramps-webapi/ (WIP)
   - back-end API for accessing gramps data bases
   - unmet dependencies:
+    - python-flask-jwt-extended: https://pypi.org/project/Flask-JWT-Extended/
+      (COPR)
     - python-flask-limiter: https://pypi.org/project/flask-limiter/ (COPR)
     - python-ffmpeg-python: https://pypi.org/project/ffmpeg-python/ (COPR)
     - python-sifts: https://pypi.org/project/sifts/ (COPR)
@@ -27,7 +28,8 @@ Key:
 
 Build Order:
 1. python-limits
-1. python-flask-limiter, python-ffpmeg-python, python-sifts, python-webargs
+1. python-flask_jwt_extended, python-flask-limiter, python-ffpmeg-python
+1. python-sifts, python-webargs
 1. python-gramps-webapi
 
 Notes:
@@ -37,3 +39,5 @@ Notes:
   - Fedora 42 version builds without issue and is in the COPR, unchanged
     from the Fedora 41 version
 
+TODO:
+- documentation packages? are there some needed?
