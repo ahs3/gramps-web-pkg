@@ -3,6 +3,7 @@ gramps-ql*
 gramps-web-api*
 flask-limiter*
 limits*
+object-ql*
 python-ffmpeg-python/
 sifts*
 webargs*

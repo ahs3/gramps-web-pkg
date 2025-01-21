@@ -14,6 +14,7 @@ Packages being (or to be) created:
     - python-flask-limiter: https://pypi.org/project/flask-limiter/ (COPR)
     - python-ffmpeg-python: https://pypi.org/project/ffmpeg-python/ (COPR)
     - python-gramps-ql: https://pypi.org/project/gramps-ql/ (COPR)
+    - python-object-ql: https://pypi.org/project/object-ql/ (COPR)
     - python-sifts: https://pypi.org/project/sifts/ (COPR)
     - python-webargs: https://pypi.org/project/webargs/ (COPR)
 - python-flask-limiter: https://pypi.org/project/flask-limiter/ (COPR)
@@ -31,7 +32,7 @@ Build Order:
 1. python-limits -> python-flask-limiter
 1. These may be done in any order as part of this step: 
    python-flask_jwt_extended, python-ffpmeg-python, python-sifts,
-   python-webargs, python-gramps-ql
+   python-webargs, python-gramps-ql, python-object-ql
 1. python-gramps-webapi
 
 Notes:
@@ -40,6 +41,10 @@ Notes:
   - will gramps-web-api replace it?
   - Fedora 42 version builds without issue and is in the COPR, unchanged
     from the Fedora 41 version
+- python-object-ql:
+  - possible dependency loop?  seems to depend on the gramps package (the
+    desktop application)
 
 TODO:
 - documentation packages? are there some needed?
+- turn on %check in the packages
