@@ -23,7 +23,8 @@ Packages being (or to be) created:
     - python-limits: https://pypi.org/project/limits/ (COPR)
 - python-limits: https://pypi.org/project/limits/ (COPR)
   - unmet dependencies:
-    - python-etcd3: https://pypi.org/project/etcd3/ (COPR)
+    - python-etcd3: https://pypi.org/project/etcd3/ (COPR - but used in
+      testing only)
 
 Key:
 - COPR: package builds in Fedora COPR
@@ -33,7 +34,7 @@ Key:
 - WIP: Work In Progress
 
 Build Order:
-1. python-etcd3 -> python-limits -> python-flask-limiter
+1. [python-etcd3 (for test only) ->] python-limits -> python-flask-limiter
 1. These may be done in any order as part of this step: 
    python-flask_jwt_extended, python-ffpmeg-python, python-sifts,
    python-webargs, python-gramps-ql, python-object-ql
@@ -54,7 +55,11 @@ Notes:
     protobuf internally, so it can not really be used in python-limits tests.
     So, deferring %check in this package until we can figure out how to get
     testing in much better shape upstream.
+  - python-flask-limiter: in this case, all testing is done via docker images
+    which would require network connections during a build, which is not
+    allowed to ensure package integrity; will need upstream modifications for
+    this module before %check will work..
 
 TODO:
-- documentation packages? are there some needed?
+- documentation packages? e.g. gramps-web-docs
 - turn on %check in the packages
