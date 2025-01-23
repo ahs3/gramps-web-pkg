@@ -21,6 +21,9 @@ Packages being (or to be) created:
   - rate limiting for Flask applications
   - unmet dependencies:
     - python-limits: https://pypi.org/project/limits/ (COPR)
+- python-limits: https://pypi.org/project/limits/ (COPR)
+  - unmet dependencies:
+    - python-etcd3: https://pypi.org/project/etcd3/ (COPR)
 
 Key:
 - COPR: package builds in Fedora COPR
@@ -30,7 +33,7 @@ Key:
 - WIP: Work In Progress
 
 Build Order:
-1. python-limits -> python-flask-limiter
+1. python-etcd3 -> python-limits -> python-flask-limiter
 1. These may be done in any order as part of this step: 
    python-flask_jwt_extended, python-ffpmeg-python, python-sifts,
    python-webargs, python-gramps-ql, python-object-ql
@@ -45,6 +48,12 @@ Notes:
 - python-object-ql:
   - possible dependency loop?  seems to depend on the gramps package (the
     desktop application)
+- Testing (aka using %check in the build):
+  - python-limits testing relies on the module etcd3; this can be packaged,
+    but has very old testing infrastructure.  Further, etcd3 uses a deprecated
+    protobuf internally, so it can not really be used in python-limits tests.
+    So, deferring %check in this package until we can figure out how to get
+    testing in much better shape upstream.
 
 TODO:
 - documentation packages? are there some needed?
