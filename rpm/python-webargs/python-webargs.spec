@@ -1,9 +1,9 @@
 %global srcname webargs
-%global srcnamenu webargs
+%bcond tests 0
 
 Name:           python-%{srcname}
 Version:        8.6.0
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        A Python library for parsing and validating HTTP request objects
 
 License:        MIT
@@ -22,6 +22,12 @@ Flask, Django, Bottle, Tornado, Pyramid, Falcon, and aiohttp..}
 %package -n python3-%{srcname}
 Summary:        %{summary}
 
+%if %{with tests}
+BuildRequires:  pytest, python3-pytest-aiohttp, python3-bottle, python3-django
+BuildRequires:  python3-falcon, python3-flask, python3-pyramid, python3-webtest
+BuildRequires:  python3-tornado, python3-webtest-aiohttp
+%endif
+
 %description -n python3-%{srcname} %_description
 
 %prep
@@ -37,6 +43,12 @@ Summary:        %{summary}
 %pyproject_install
 %pyproject_save_files 'webargs*'
 
+%check
+%if %{with tests}
+%pyproject_check_import
+%pytest
+%endif
+
 # Note that there is no %%files section for the unversioned python module
 %files -n python3-%{srcname} -f %{pyproject_files}
 %license LICENSE
@@ -46,6 +58,10 @@ Summary:        %{summary}
 %doc README.rst
 
 %changelog
+* Thu Jan 23 2025 Al Stone <ahs3@fedorproject.org> - 8.6.0-2
+- Enable %check; deferred due to possible stale upstream for the
+  python3-webtest-aiohttp module as a dependency
+
 * Sun Jan 19 2025 Al Stone <ahs3@fedorproject.org> - 8.6.0-1
 - Update to 8.6.0 source
 - Use generate_buildrequires instead of explicit package list
