@@ -1,9 +1,10 @@
 %global	projname gramps-web-api
 %global	srcname gramps-webapi
+%bcond tests 0
 
 Name:		python-%{srcname}
 Version:	2.7.0
-Release:	1%{?dist}
+Release:	2%{?dist}
 Summary:	RESTful API for the gramps application
 
 License:	AGPL-3.0
@@ -20,10 +21,13 @@ interface.}
 
 %description %_description
 
-%py_provides python3-%{srcname}
 %package -n python3-%{srcname}
 Summary:	%{summary}
 Patch0:		gramps-desktop.patch
+
+%if %{with tests}
+BuildRequires:  pytest, python3-torch, python3-openai
+%endif
 
 %description -n python3-%{srcname} %_description
 
@@ -40,11 +44,21 @@ Patch0:		gramps-desktop.patch
 %pyproject_install
 %pyproject_save_files 'gramps_webapi*'
 
-%files -f %{pyproject_files}
+%check
+%if %{with tests}
+%pyproject_check_import
+%pytest
+%endif
+
+%files -n python3-%{srcname} -f %{pyproject_files}
 %license LICENSE
 %doc README.md
 
 %changelog
+* Thu Jan 23 2025 Al Stone <ahs3@fedoraproject.org> - 2.0.7-2
+- Initial attempt at %check; deferred due to test dependency on python3-openai
+- Use proper output package name
+
 * Mon Jan 13 2025 Al Stone <ahs3@fedoraproject.org> - 2.0.7-1
 - Initial attempt at packaging
 - Starting with release v2.0.7
