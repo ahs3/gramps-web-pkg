@@ -1,0 +1,54 @@
+    setup.sh
+
+    //update the system
+    sudo apt-get update
+    sudo apt-get upgrade -y
+
+    sudo apt-get install git -y
+
+    //backend install
+
+    //install build tools for PIP
+    sudo apt-get install build-essential pkg-config cmake libcairo2-dev libtool python3-dev python3-gi python-gi-dev python3-gi-cairo gir1.2-gtk-4.0 libicu-dev python3-icu libpq-dev gobject-introspection libgirepository1.0-dev -y
+    //to run the backend it is required to have gir1.2-gtk-3.0 installed so run this:
+    sudo apt-get install gir1.2-gtk-3.0 -y
+    cd /var/www
+    git clone GitHub - gramps-project/gramps-web-api: A RESTful web API for Gramps - backend of Gramps Web
+
+    //install pip module
+    cd /tmp
+    wget https://bootstrap.pypa.io/get-pip.py
+    python ./get-pip.py
+
+    //now the web rest api deps install/build
+    cd /var/www/gramps-web-api/
+    pip install --ignore-installed .
+    nano configfile.cfg
+    paste this:
+    TREE=“My Family Tree”
+    BASE_URL=“https://mytree.example.com”
+    SECRET_KEY=“…” # your secret key
+    USER_DB_URI=“sqlite:////path/to/users.sqlite”
+    EMAIL_HOST=“mail.example.com”
+    EMAIL_PORT=465
+    EMAIL_USE_TLS=True
+    EMAIL_HOST_USER="gramps@example.com"
+    EMAIL_HOST_PASSWORD=“…” # your SMTP password
+    DEFAULT_FROM_EMAIL="gramps@example.com"
+
+    CTRL+O and CTRL+X to exit.
+    then write:
+    LANGUAGE=en python3 -O -m gramps_webapi --config configfile.cfg run --port 5555
+    you can change the port, the config filename if you like. You will see the errors becouse GTK needs a init to function normaly. In ubuntu desktop version this should be gone (theoreticaly).
+    if you done right you should see the output like this:
+    Running Gramps Web API server…
+    Control+C to quit
+
+        Serving Flask app ‘gramps_webapi.app’
+        Debug mode: off
+        WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+        Running on http://127.0.0.1:5555
+        Press CTRL+C to quit
+
+    GJ! but it requires some kind of front end and it is only locally accessable. if you want you can run reverse proxy from nginx and use it with public address but generally only frontend pp that is running in the same server should get access to this.
+
