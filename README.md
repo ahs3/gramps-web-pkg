@@ -21,10 +21,6 @@ Packages being (or to be) created:
   - rate limiting for Flask applications
   - unmet dependencies:
     - python-limits: https://pypi.org/project/limits/ (COPR)
-- python-limits: https://pypi.org/project/limits/ (COPR)
-  - unmet dependencies:
-    - python-etcd3: https://pypi.org/project/etcd3/ (COPR - but used in
-      testing only)
 
 Key:
 - COPR: package builds in Fedora COPR
@@ -49,16 +45,18 @@ Notes:
 - python-object-ql:
   - possible dependency loop?  seems to depend on the gramps package (the
     desktop application)
-- Testing (aka using %check in the build):
-  - python-limits testing relies on the module etcd3; this can be packaged,
-    but has very old testing infrastructure.  Further, etcd3 uses a deprecated
-    protobuf internally, so it can not really be used in python-limits tests.
-    So, deferring %check in this package until we can figure out how to get
-    testing in much better shape upstream.
-  - python-flask-limiter: in this case, all testing is done via docker images
-    which would require network connections during a build, which is not
-    allowed to ensure package integrity; will need upstream modifications for
-    this module before %check will work..
+- Testing (aka, for Fedora, using %check in the build):
+  - Whilst automated testing is all well and good, a lot of these modules
+    require access to pip or docker when running pytest or tox; in several
+    cases, modules are required that appear to be neither in Fedora or
+    Debian.  In at least one extreme case, the tests have not been updated
+    in a long time and rely on a deprecated module.  Where possible, I am
+    currently trying to test these by hand.  However, there is a lot of work
+    required upstream to remove the need for network connections.
+  - At best, %check will actually work, will be put in the package, and
+    turned on by default, so the test will run at build time.
+  - At worst, a rough draft of %check might be present, but turned off
+    until things can be straightened out.
 
 TODO:
 - documentation packages? e.g. gramps-web-docs
