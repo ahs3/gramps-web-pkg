@@ -59,6 +59,7 @@ Notes:
   - At worst, a rough draft of %check might be present, but turned off
     until things can be straightened out.
   - python-gramps-ql %check works fine
+  - python-object-ql %check works fine
 
 TODO:
 - documentation packages? e.g. gramps-web-docs
