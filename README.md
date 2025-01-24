@@ -58,6 +58,7 @@ Notes:
     turned on by default, so the test will run at build time.
   - At worst, a rough draft of %check might be present, but turned off
     until things can be straightened out.
+  - python-gramps-ql %check works fine
 
 TODO:
 - documentation packages? e.g. gramps-web-docs
