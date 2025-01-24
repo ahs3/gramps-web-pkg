@@ -42,6 +42,7 @@ Notes:
   - will gramps-web-api replace it?
   - Fedora 42 version builds without issue and is in the COPR, unchanged
     from the Fedora 41 version
+  - %check will fail when tests are enabled but most tests seem to work
 - python-object-ql:
   - possible dependency loop?  seems to depend on the gramps package (the
     desktop application)
