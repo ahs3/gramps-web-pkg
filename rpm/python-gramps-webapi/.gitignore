@@ -3,3 +3,4 @@ python-gramps-webapi-*build
 results_python-gramps-webapi
 config.cfg
 thumbnail_cache
+pkg-testing

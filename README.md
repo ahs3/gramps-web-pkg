@@ -1,12 +1,15 @@
 Experimental packaging for the gramps-web project, instead of using containers
 
+NB: use at your own risk; testing has been minimal and this is most
+definitely a work in progress.
+
 Packages being (or to be) created:
 - gramps-web: meta package (WIP)
   - web site for gramps data bases: https://www.grampsweb.org/
   - unmet dependencies:
     - python-gramps-webapi: https://pypi.org/project/gramps-webapi/ (COPR)
-    - gramps-web-frontend (WIP)
-- gramps-web-api: https://pypi.org/project/gramps-webapi/ (COPR)
+    - js-gramps-web (WIP)
+- python-gramps-webapi: https://pypi.org/project/gramps-webapi/ (COPR)
   - back-end API for accessing gramps data bases
   - unmet dependencies:
     - python-flask_jwt_extended: https://pypi.org/project/Flask-JWT-Extended/
@@ -62,5 +65,6 @@ Notes:
   - python-object-ql %check works fine
 
 TODO:
-- documentation packages? e.g. gramps-web-docs
-- turn on %check in the packages
+- documentation packages? e.g. gramps-web-docs is separate, but are there
+  others needed?
+- turn on %check in all of the packages
