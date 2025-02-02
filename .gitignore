@@ -1,5 +1,6 @@
 .*.swp
 gramps-ql*
+gramps-web*
 gramps-web-api*
 flask-limiter*
 limits*
