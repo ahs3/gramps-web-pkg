@@ -1,6 +1,6 @@
 [Unit]
 Description=Gramps Web API
-Documentation=file://usr/share/doc/gramps-web/README.md
+Documentation=file://usr/share/doc/python-gramps-webapi/README.md
 
 [Service]
 Type=exec
