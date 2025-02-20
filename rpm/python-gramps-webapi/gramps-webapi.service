@@ -10,7 +10,7 @@ ExecStart=LANGUAGE=${LANGUAGE} GRAMPSHOME=${GRAMPSHOME} /usr/bin/python3 --O -m 
 
 [Install]
 WantedBy=multi-user.target
-Before=gramps-web.service
+Before=gramps-webfrontend.service
 
 # Place temp files in a secure directory, not /tmp
 PrivateTmp=true
