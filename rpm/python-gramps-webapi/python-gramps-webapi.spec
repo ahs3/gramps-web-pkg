@@ -70,14 +70,14 @@ cp -p gramps-webapi.env %{buildroot}/%{_sysconfdir}/sysconfig/gramps-webapi
 if [ $1 -gt 1 ]
 then
 fi
-%systemd_post %{Source3}
+%systemd_post %{SOURCE3}
 %{_libexecdir}/gramps-web/setup-api.sh
 
 %preun
-%systemd_preun %{Source3}
+%systemd_preun %{SOURCE3}
 
 %postun
-%systemd_postun_with_restart %{Source3}
+%systemd_postun_with_restart %{SOURCE3}
 
 %files -n python3-%{srcname} -f %{pyproject_files}
 %license LICENSE
