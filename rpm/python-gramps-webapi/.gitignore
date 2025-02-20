@@ -4,3 +4,7 @@ results_python-gramps-webapi
 config.cfg
 thumbnail_cache
 pkg-testing
+/gramps-web-api-2.7.0.tar.gz
+/data.gramps
+/config-gramps-webapi.sh
+/gramps-web-api.service

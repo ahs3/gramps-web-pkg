@@ -1,0 +1,16 @@
+[Unit]
+Description=Gramps Web API
+Documentation=file://usr/share/doc/gramps-web/README.md
+
+[Service]
+Type=exec
+ExitType=main
+EnvironmentFile=-/etc/sysconfig/gramps-webapi
+ExecStart=LANGUAGE=${LANGUAGE} GRAMPSHOME=${GRAMPSHOME} /usr/bin/python3 --O -m gramps_webapi --config /usr/share/gramps-web/config.cfg run --port 5555
+
+[Install]
+WantedBy=multi-user.target
+Before=gramps-web.service
+
+# Place temp files in a secure directory, not /tmp
+PrivateTmp=true
