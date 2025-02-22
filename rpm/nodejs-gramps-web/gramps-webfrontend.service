@@ -1,0 +1,15 @@
+[Unit]
+Description=Gramps Web Front End
+Documentation=file://usr/share/doc/nodejs-gramps-web/README.md
+
+[Service]
+Type=exec
+ExitType=main
+ExecStart=/usr/bin/npm start run 
+
+[Install]
+WantedBy=multi-user.target
+After=gramps-webapi.service
+
+# Place temp files in a secure directory, not /tmp
+PrivateTmp=true
