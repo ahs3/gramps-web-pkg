@@ -1,3 +1,6 @@
+ABANDONED: I don't have the time to deal with the multitude of dependencies.
+Please feel to clone/use as you wish.
+
 Experimental packaging for the gramps-web project, instead of using containers
 
 NB: use at your own risk; testing has been minimal and this is most
