@@ -6,7 +6,7 @@ Documentation=file://usr/share/doc/python-gramps-webapi/README.md
 Type=exec
 ExitType=main
 EnvironmentFile=-/etc/sysconfig/gramps-webapi
-ExecStart=LANGUAGE=${LANGUAGE} GRAMPSHOME=${GRAMPSHOME} /usr/bin/python3 --O -m gramps_webapi --config /usr/share/gramps-web/config.cfg run --port 5555
+ExecStart=LANGUAGE=${LANGUAGE} GRAMPSHOME=${GRAMPSHOME} /usr/bin/python3 -O -m gramps_webapi --config /usr/share/gramps-web/config.cfg run --port 5555
 
 [Install]
 WantedBy=multi-user.target
